@@ -12,6 +12,21 @@ PyTorch reference implementation and benchmark harness for two 2026 transformer-
 
 This is a *demonstration* repo (laptop-scale, ~1.5M params, 500 steps, byte-level). The benchmark intentionally uses repeated proverbs as data, which heavily favors Engram's hash memorization — see the "Limitations & Caveats" section of `README.md` before drawing conclusions from `benchmark_chart.png`. Don't quote the loss numbers as evidence one method beats another; quote the papers' billion-scale results instead.
 
+## In-Progress Work — `codes_moe/` (Qwen3-Style MoE)
+
+A second model is being built in `codes_moe/`: a ~0.5B-parameter MoE language model that combines the **Qwen3 architecture** (GQA + RoPE base 1M + RMSNorm + QK-Norm + SwiGLU experts), the **Qwen3-Next gated attention** (sigmoid gate after SDPA), and the **Engram + Block AttnRes** techniques from `codes/`. Trained from scratch on `test_data/Asimov_the_foundation.pdf`.
+
+**Status: plan-only.** The directory currently contains `PLAN.md` and nothing else. Read `codes_moe/PLAN.md` end-to-end before adding any implementation file — it is the source of truth for hyperparameters, file layout, the 12-step implementation order, the parameter budget arithmetic, and the §8 honesty caveats (data starvation, MoE collapse risk on ~500K tokens). When implementing:
+
+- Imports cross sibling directories: `codes_moe/combined_moe_model.py` reuses `EngramModule` and `BlockAttnRes` from `codes/` via `sys.path.insert(0, '../codes')`. Do NOT duplicate those modules.
+- The existing `codes/combined_model.py` is the structural reference for layer wiring (Engram between attention and MoE; AttnRes twice per layer). Don't edit it as part of MoE work.
+- "Qwen 3.6" mentioned by the user resolves to the Qwen3 family (May 2025 tech report) plus Qwen3-Next gated attention (NeurIPS 2025 oral). PLAN.md §0 documents this assumption.
+- Codex (`AGENTS.md`) is the secondary reviewer; keep style consistent with `codes/` per AGENTS.md conventions.
+
+**Training data:** `test_data/Asimov_the_foundation.pdf` (~2 MB, ~500K tokens after BPE). Note this is ~20,000× under-trained for a 500M model — the build is a structural correctness exercise, not a capability claim.
+
+**Outputs that will land here when implemented:** `codes_moe/cache/` (extracted text + tokenizer), `codes_moe/checkpoints/`, `codes_moe/losses.jsonl`, `codes_moe/benchmark_moe_chart.png`. Add to `.gitignore` as appropriate when they appear.
+
 ## Answering Questions With `graphify-out/`
 
 The `graphify-out/` directory contains a precomputed knowledge graph of this repo (built by `/graphify`). Before grepping or reading source files for an architecture/concept question, check whether the graph already encodes it — it's faster than re-deriving structure, and it crosses the doc/code/paper boundary.
