@@ -1,52 +1,7 @@
 {
   "directed": false,
   "multigraph": false,
-  "graph": {
-    "hyperedges": [
-      {
-        "id": "three_model_variants_benchmark",
-        "label": "Three model variants trained side-by-side in benchmark",
-        "nodes": [
-          "attention_residuals_AttnResTransformer",
-          "benchmark_EngramOnlyTransformer",
-          "combined_model_CombinedEngramAttnResTransformer",
-          "benchmark_train_model"
-        ],
-        "relation": "participate_in",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "codes/benchmark.py"
-      },
-      {
-        "id": "engram_retrieval_pipeline",
-        "label": "Engram retrieval pipeline: compressor -> ngram hash -> multi-head embedding tables",
-        "nodes": [
-          "engram_TokenizerCompressor",
-          "engram_NgramHashMapping",
-          "engram_MultiHeadEmbedding",
-          "engram_retrieve"
-        ],
-        "relation": "implement",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "codes/engram.py"
-      },
-      {
-        "id": "block_attnres_dataflow",
-        "label": "Block AttnRes dataflow: two AttnRes per layer around attention and MLP with block-boundary state",
-        "nodes": [
-          "attention_residuals_BlockAttnRes",
-          "attention_residuals_AttnResTransformerLayer",
-          "attention_residuals_is_block_boundary",
-          "combined_model_CombinedTransformerLayer"
-        ],
-        "relation": "implement",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "CLAUDE.md"
-      }
-    ]
-  },
+  "graph": {},
   "nodes": [
     {
       "label": "attention_residuals.py",
@@ -54,7 +9,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L1",
       "id": "codes_attention_residuals_py",
-      "community": 1,
+      "community": 17,
       "norm_label": "attention_residuals.py"
     },
     {
@@ -63,7 +18,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L16",
       "id": "attention_residuals_rmsnorm",
-      "community": 1,
+      "community": 6,
       "norm_label": "rmsnorm"
     },
     {
@@ -72,7 +27,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L19",
       "id": "attention_residuals_rmsnorm_init",
-      "community": 1,
+      "community": 6,
       "norm_label": ".__init__()"
     },
     {
@@ -81,7 +36,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L24",
       "id": "attention_residuals_rmsnorm_forward",
-      "community": 1,
+      "community": 6,
       "norm_label": ".forward()"
     },
     {
@@ -90,7 +45,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L29",
       "id": "attention_residuals_blockattnres",
-      "community": 2,
+      "community": 5,
       "norm_label": "blockattnres"
     },
     {
@@ -99,7 +54,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L42",
       "id": "attention_residuals_blockattnres_init",
-      "community": 1,
+      "community": 6,
       "norm_label": ".__init__()"
     },
     {
@@ -108,7 +63,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L49",
       "id": "attention_residuals_blockattnres_forward",
-      "community": 2,
+      "community": 5,
       "norm_label": ".forward()"
     },
     {
@@ -117,7 +72,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L85",
       "id": "attention_residuals_attnrestransformerlayer",
-      "community": 1,
+      "community": 4,
       "norm_label": "attnrestransformerlayer"
     },
     {
@@ -126,7 +81,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L102",
       "id": "attention_residuals_attnrestransformerlayer_init",
-      "community": 1,
+      "community": 6,
       "norm_label": ".__init__()"
     },
     {
@@ -135,7 +90,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L137",
       "id": "attention_residuals_attnrestransformerlayer_is_block_boundary",
-      "community": 1,
+      "community": 4,
       "norm_label": "._is_block_boundary()"
     },
     {
@@ -144,7 +99,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L143",
       "id": "attention_residuals_attnrestransformerlayer_mlp",
-      "community": 1,
+      "community": 4,
       "norm_label": "._mlp()"
     },
     {
@@ -153,7 +108,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L149",
       "id": "attention_residuals_attnrestransformerlayer_forward",
-      "community": 1,
+      "community": 4,
       "norm_label": ".forward()"
     },
     {
@@ -171,7 +126,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L214",
       "id": "attention_residuals_attnrestransformer_init",
-      "community": 1,
+      "community": 6,
       "norm_label": ".__init__()"
     },
     {
@@ -189,7 +144,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L1",
       "id": "attention_residuals_rationale_1",
-      "community": 1,
+      "community": 17,
       "norm_label": "attention residuals (attnres) based on the kimi team's paper (arxiv: 2603.15031"
     },
     {
@@ -198,7 +153,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L17",
       "id": "attention_residuals_rationale_17",
-      "community": 1,
+      "community": 6,
       "norm_label": "root mean square layer normalization."
     },
     {
@@ -207,7 +162,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L30",
       "id": "attention_residuals_rationale_30",
-      "community": 2,
+      "community": 5,
       "norm_label": "block attention residuals module.      instead of fixed h_l = h_{l-1} + f_{l-1"
     },
     {
@@ -216,7 +171,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L54",
       "id": "attention_residuals_rationale_54",
-      "community": 2,
+      "community": 5,
       "norm_label": "compute attention-weighted combination over depth.          args:"
     },
     {
@@ -225,7 +180,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L86",
       "id": "attention_residuals_rationale_86",
-      "community": 1,
+      "community": 4,
       "norm_label": "a single transformer layer with block attention residuals.      each layer app"
     },
     {
@@ -234,7 +189,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L138",
       "id": "attention_residuals_rationale_138",
-      "community": 1,
+      "community": 4,
       "norm_label": "check if this layer starts a new block."
     },
     {
@@ -243,7 +198,7 @@
       "source_file": "codes\\attention_residuals.py",
       "source_location": "L155",
       "id": "attention_residuals_rationale_155",
-      "community": 1,
+      "community": 4,
       "norm_label": "forward pass with block attention residuals.          args:             block"
     },
     {
@@ -378,7 +333,7 @@
       "source_file": "codes\\benchmark.py",
       "source_location": "L128",
       "id": "benchmark_train_model",
-      "community": 3,
+      "community": 2,
       "norm_label": "train_model()"
     },
     {
@@ -405,7 +360,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L1",
       "id": "codes_combined_model_py",
-      "community": 2,
+      "community": 0,
       "norm_label": "combined_model.py"
     },
     {
@@ -414,7 +369,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L21",
       "id": "combined_model_swiglu",
-      "community": 2,
+      "community": 0,
       "norm_label": "swiglu"
     },
     {
@@ -423,7 +378,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L24",
       "id": "combined_model_swiglu_init",
-      "community": 2,
+      "community": 0,
       "norm_label": ".__init__()"
     },
     {
@@ -432,7 +387,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L31",
       "id": "combined_model_swiglu_forward",
-      "community": 2,
+      "community": 0,
       "norm_label": ".forward()"
     },
     {
@@ -441,7 +396,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L35",
       "id": "combined_model_combinedtransformerlayer",
-      "community": 2,
+      "community": 0,
       "norm_label": "combinedtransformerlayer"
     },
     {
@@ -450,7 +405,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L57",
       "id": "combined_model_combinedtransformerlayer_init",
-      "community": 2,
+      "community": 0,
       "norm_label": ".__init__()"
     },
     {
@@ -459,7 +414,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L108",
       "id": "combined_model_combinedtransformerlayer_is_block_boundary",
-      "community": 2,
+      "community": 0,
       "norm_label": "._is_block_boundary()"
     },
     {
@@ -468,7 +423,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L112",
       "id": "combined_model_combinedtransformerlayer_forward",
-      "community": 2,
+      "community": 0,
       "norm_label": ".forward()"
     },
     {
@@ -477,7 +432,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L168",
       "id": "combined_model_combinedengramattnrestransformer",
-      "community": 5,
+      "community": 3,
       "norm_label": "combinedengramattnrestransformer"
     },
     {
@@ -486,7 +441,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L190",
       "id": "combined_model_combinedengramattnrestransformer_init",
-      "community": 2,
+      "community": 0,
       "norm_label": ".__init__()"
     },
     {
@@ -495,7 +450,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L242",
       "id": "combined_model_combinedengramattnrestransformer_forward",
-      "community": 5,
+      "community": 6,
       "norm_label": ".forward()"
     },
     {
@@ -504,7 +459,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L284",
       "id": "combined_model_combinedengramattnrestransformer_param_summary",
-      "community": 5,
+      "community": 3,
       "norm_label": ".param_summary()"
     },
     {
@@ -513,7 +468,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L1",
       "id": "combined_model_rationale_1",
-      "community": 2,
+      "community": 0,
       "norm_label": "combined model: engram + attention residuals integrates deepseek's engram (cond"
     },
     {
@@ -522,7 +477,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L22",
       "id": "combined_model_rationale_22",
-      "community": 2,
+      "community": 0,
       "norm_label": "swiglu feed-forward network."
     },
     {
@@ -531,7 +486,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L36",
       "id": "combined_model_rationale_36",
-      "community": 2,
+      "community": 0,
       "norm_label": "transformer layer with both block attnres and optional engram injection."
     },
     {
@@ -540,7 +495,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L119",
       "id": "combined_model_rationale_119",
-      "community": 2,
+      "community": 0,
       "norm_label": "forward pass.          args:             blocks: completed block representati"
     },
     {
@@ -549,7 +504,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L169",
       "id": "combined_model_rationale_169",
-      "community": 2,
+      "community": 3,
       "norm_label": "full transformer combining engram (conditional memory) and block attnres     (a"
     },
     {
@@ -558,7 +513,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L247",
       "id": "combined_model_rationale_247",
-      "community": 2,
+      "community": 6,
       "norm_label": "args:             input_ids: [b, t] token ids             labels: [b, t] optio"
     },
     {
@@ -567,7 +522,7 @@
       "source_file": "codes\\combined_model.py",
       "source_location": "L285",
       "id": "combined_model_rationale_285",
-      "community": 2,
+      "community": 3,
       "norm_label": "print parameter breakdown."
     },
     {
@@ -576,7 +531,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L1",
       "id": "codes_engram_py",
-      "community": 0,
+      "community": 14,
       "norm_label": "engram.py"
     },
     {
@@ -585,7 +540,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L16",
       "id": "engram_next_prime",
-      "community": 0,
+      "community": 14,
       "norm_label": "_next_prime()"
     },
     {
@@ -594,7 +549,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L32",
       "id": "engram_rmsnorm",
-      "community": 2,
+      "community": 13,
       "norm_label": "rmsnorm"
     },
     {
@@ -603,7 +558,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L35",
       "id": "engram_rmsnorm_init",
-      "community": 0,
+      "community": 13,
       "norm_label": ".__init__()"
     },
     {
@@ -612,7 +567,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L40",
       "id": "engram_rmsnorm_forward",
-      "community": 2,
+      "community": 13,
       "norm_label": ".forward()"
     },
     {
@@ -621,7 +576,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L45",
       "id": "engram_tokenizercompressor",
-      "community": 0,
+      "community": 7,
       "norm_label": "tokenizercompressor"
     },
     {
@@ -630,7 +585,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L52",
       "id": "engram_tokenizercompressor_init",
-      "community": 0,
+      "community": 7,
       "norm_label": ".__init__()"
     },
     {
@@ -639,7 +594,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L63",
       "id": "engram_tokenizercompressor_forward",
-      "community": 0,
+      "community": 7,
       "norm_label": ".forward()"
     },
     {
@@ -648,7 +603,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L68",
       "id": "engram_ngramhashmapping",
-      "community": 0,
+      "community": 12,
       "norm_label": "ngramhashmapping"
     },
     {
@@ -657,7 +612,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L74",
       "id": "engram_ngramhashmapping_init",
-      "community": 0,
+      "community": 14,
       "norm_label": ".__init__()"
     },
     {
@@ -666,7 +621,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L101",
       "id": "engram_ngramhashmapping_forward",
-      "community": 0,
+      "community": 12,
       "norm_label": ".forward()"
     },
     {
@@ -675,7 +630,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L128",
       "id": "engram_multiheadembedding",
-      "community": 0,
+      "community": 9,
       "norm_label": "multiheadembedding"
     },
     {
@@ -684,7 +639,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L134",
       "id": "engram_multiheadembedding_init",
-      "community": 0,
+      "community": 9,
       "norm_label": ".__init__()"
     },
     {
@@ -693,7 +648,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L154",
       "id": "engram_multiheadembedding_forward",
-      "community": 0,
+      "community": 9,
       "norm_label": ".forward()"
     },
     {
@@ -702,7 +657,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L168",
       "id": "engram_shortconv",
-      "community": 0,
+      "community": 11,
       "norm_label": "shortconv"
     },
     {
@@ -711,7 +666,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L174",
       "id": "engram_shortconv_init",
-      "community": 0,
+      "community": 13,
       "norm_label": ".__init__()"
     },
     {
@@ -720,7 +675,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L185",
       "id": "engram_shortconv_forward",
-      "community": 0,
+      "community": 11,
       "norm_label": ".forward()"
     },
     {
@@ -729,7 +684,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L203",
       "id": "engram_engrammodule",
-      "community": 2,
+      "community": 0,
       "norm_label": "engrammodule"
     },
     {
@@ -738,7 +693,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L220",
       "id": "engram_engrammodule_init",
-      "community": 0,
+      "community": 13,
       "norm_label": ".__init__()"
     },
     {
@@ -747,7 +702,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L293",
       "id": "engram_engrammodule_build_ngrams",
-      "community": 8,
+      "community": 0,
       "norm_label": "._build_ngrams()"
     },
     {
@@ -756,7 +711,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L313",
       "id": "engram_engrammodule_retrieve",
-      "community": 8,
+      "community": 0,
       "norm_label": ".retrieve()"
     },
     {
@@ -765,7 +720,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L335",
       "id": "engram_engrammodule_fuse",
-      "community": 8,
+      "community": 0,
       "norm_label": ".fuse()"
     },
     {
@@ -774,7 +729,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L377",
       "id": "engram_engrammodule_forward",
-      "community": 8,
+      "community": 0,
       "norm_label": ".forward()"
     },
     {
@@ -783,7 +738,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L1",
       "id": "engram_rationale_1",
-      "community": 0,
+      "community": 14,
       "norm_label": "engram: conditional memory via scalable lookup based on deepseek's paper (arxiv"
     },
     {
@@ -792,7 +747,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L17",
       "id": "engram_rationale_17",
-      "community": 0,
+      "community": 14,
       "norm_label": "find the next prime number >= n."
     },
     {
@@ -801,7 +756,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L33",
       "id": "engram_rationale_33",
-      "community": 2,
+      "community": 13,
       "norm_label": "root mean square layer normalization."
     },
     {
@@ -810,7 +765,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L46",
       "id": "engram_rationale_46",
-      "community": 0,
+      "community": 7,
       "norm_label": "vocabulary projection that maps raw token ids to compressed canonical ids."
     },
     {
@@ -819,7 +774,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L64",
       "id": "engram_rationale_64",
-      "community": 0,
+      "community": 7,
       "norm_label": "map raw token ids to compressed ids."
     },
     {
@@ -828,7 +783,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L69",
       "id": "engram_rationale_69",
-      "community": 0,
+      "community": 12,
       "norm_label": "multiplicative-xor hash function for n-gram lookup.     maps n-gram tuples to e"
     },
     {
@@ -837,7 +792,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L102",
       "id": "engram_rationale_102",
-      "community": 0,
+      "community": 12,
       "norm_label": "args:             compressed_ngrams: [batch, seq_len, ngram_size] compressed to"
     },
     {
@@ -846,7 +801,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L129",
       "id": "engram_rationale_129",
-      "community": 0,
+      "community": 9,
       "norm_label": "multiple embedding tables for a single n-gram order.     each head has its own"
     },
     {
@@ -855,7 +810,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L155",
       "id": "engram_rationale_155",
-      "community": 0,
+      "community": 9,
       "norm_label": "args:             hash_indices: [batch, seq_len, num_heads]          returns:"
     },
     {
@@ -864,7 +819,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L169",
       "id": "engram_rationale_169",
-      "community": 0,
+      "community": 11,
       "norm_label": "depthwise convolution with silu activation and residual connection.     equatio"
     },
     {
@@ -873,7 +828,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L186",
       "id": "engram_rationale_186",
-      "community": 0,
+      "community": 11,
       "norm_label": "args:             x: [batch, seq_len, dim]         returns:             out:"
     },
     {
@@ -882,7 +837,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L204",
       "id": "engram_rationale_204",
-      "community": 2,
+      "community": 0,
       "norm_label": "complete engram module: retrieval (hash lookup) + fusion (gating + conv)."
     },
     {
@@ -891,7 +846,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L296",
       "id": "engram_rationale_296",
-      "community": 8,
+      "community": 0,
       "norm_label": "build n-gram windows from compressed token ids.          args:             co"
     },
     {
@@ -900,7 +855,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L314",
       "id": "engram_rationale_314",
-      "community": 8,
+      "community": 0,
       "norm_label": "phase 1: retrieve embeddings from hash tables.          args:             tok"
     },
     {
@@ -909,7 +864,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L341",
       "id": "engram_rationale_341",
-      "community": 8,
+      "community": 0,
       "norm_label": "phase 2: fuse retrieved memory into hidden states via gating + conv."
     },
     {
@@ -918,7 +873,7 @@
       "source_file": "codes\\engram.py",
       "source_location": "L383",
       "id": "engram_rationale_383",
-      "community": 8,
+      "community": 0,
       "norm_label": "full engram forward: retrieve + fuse.          args:             hidden_state"
     },
     {
@@ -954,7 +909,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L36",
       "id": "test_attention_residuals_test_block_attn_res_zero_query_init",
-      "community": 1,
+      "community": 5,
       "norm_label": "test_block_attn_res_zero_query_init()"
     },
     {
@@ -963,7 +918,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L58",
       "id": "test_attention_residuals_test_block_attn_res_gradient_flow",
-      "community": 1,
+      "community": 5,
       "norm_label": "test_block_attn_res_gradient_flow()"
     },
     {
@@ -972,7 +927,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L77",
       "id": "test_attention_residuals_test_block_attn_res_single_source",
-      "community": 1,
+      "community": 5,
       "norm_label": "test_block_attn_res_single_source()"
     },
     {
@@ -990,7 +945,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L105",
       "id": "test_attention_residuals_test_transformer_layer_block_boundary",
-      "community": 1,
+      "community": 4,
       "norm_label": "test_transformer_layer_block_boundary()"
     },
     {
@@ -999,7 +954,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L123",
       "id": "test_attention_residuals_test_transformer_layer_no_boundary",
-      "community": 1,
+      "community": 4,
       "norm_label": "test_transformer_layer_no_boundary()"
     },
     {
@@ -1062,7 +1017,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L37",
       "id": "test_attention_residuals_rationale_37",
-      "community": 1,
+      "community": 5,
       "norm_label": "at init, query=0 so attention should be uniform over all sources."
     },
     {
@@ -1071,7 +1026,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L59",
       "id": "test_attention_residuals_rationale_59",
-      "community": 1,
+      "community": 5,
       "norm_label": "ensure gradients flow through attnres to all sources."
     },
     {
@@ -1080,7 +1035,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L78",
       "id": "test_attention_residuals_rationale_78",
-      "community": 1,
+      "community": 5,
       "norm_label": "with one source, output should equal that source (regardless of query)."
     },
     {
@@ -1089,7 +1044,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L106",
       "id": "test_attention_residuals_rationale_106",
-      "community": 1,
+      "community": 4,
       "norm_label": "layer at a block boundary should append partial to blocks."
     },
     {
@@ -1098,7 +1053,7 @@
       "source_file": "codes\\test_attention_residuals.py",
       "source_location": "L124",
       "id": "test_attention_residuals_rationale_124",
-      "community": 1,
+      "community": 4,
       "norm_label": "layer not at a block boundary should not change block count."
     },
     {
@@ -1134,7 +1089,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L1",
       "id": "codes_test_combined_py",
-      "community": 5,
+      "community": 3,
       "norm_label": "test_combined.py"
     },
     {
@@ -1143,7 +1098,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L10",
       "id": "test_combined_test_combined_forward",
-      "community": 5,
+      "community": 3,
       "norm_label": "test_combined_forward()"
     },
     {
@@ -1152,7 +1107,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L33",
       "id": "test_combined_test_combined_with_loss",
-      "community": 5,
+      "community": 3,
       "norm_label": "test_combined_with_loss()"
     },
     {
@@ -1161,7 +1116,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L57",
       "id": "test_combined_test_combined_backward",
-      "community": 5,
+      "community": 3,
       "norm_label": "test_combined_backward()"
     },
     {
@@ -1170,7 +1125,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L85",
       "id": "test_combined_test_param_summary",
-      "community": 5,
+      "community": 3,
       "norm_label": "test_param_summary()"
     },
     {
@@ -1179,7 +1134,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L110",
       "id": "test_combined_test_engram_only_at_designated_layers",
-      "community": 5,
+      "community": 3,
       "norm_label": "test_engram_only_at_designated_layers()"
     },
     {
@@ -1188,7 +1143,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L132",
       "id": "test_combined_test_training_step",
-      "community": 5,
+      "community": 3,
       "norm_label": "test_training_step()"
     },
     {
@@ -1197,7 +1152,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L1",
       "id": "test_combined_rationale_1",
-      "community": 5,
+      "community": 3,
       "norm_label": "tests for the combined engram + attnres model. run with: python test_combined.p"
     },
     {
@@ -1206,7 +1161,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L111",
       "id": "test_combined_rationale_111",
-      "community": 5,
+      "community": 3,
       "norm_label": "verify engram modules exist only at specified layers."
     },
     {
@@ -1215,7 +1170,7 @@
       "source_file": "codes\\test_combined.py",
       "source_location": "L133",
       "id": "test_combined_rationale_133",
-      "community": 5,
+      "community": 3,
       "norm_label": "simulate a full training step."
     },
     {
@@ -1224,7 +1179,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L1",
       "id": "codes_test_engram_py",
-      "community": 0,
+      "community": 8,
       "norm_label": "test_engram.py"
     },
     {
@@ -1233,7 +1188,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L19",
       "id": "test_engram_test_next_prime",
-      "community": 0,
+      "community": 14,
       "norm_label": "test_next_prime()"
     },
     {
@@ -1242,7 +1197,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L28",
       "id": "test_engram_test_rms_norm",
-      "community": 0,
+      "community": 8,
       "norm_label": "test_rms_norm()"
     },
     {
@@ -1251,7 +1206,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L39",
       "id": "test_engram_test_tokenizer_compressor",
-      "community": 0,
+      "community": 7,
       "norm_label": "test_tokenizer_compressor()"
     },
     {
@@ -1260,7 +1215,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L49",
       "id": "test_engram_test_ngram_hash_mapping",
-      "community": 0,
+      "community": 12,
       "norm_label": "test_ngram_hash_mapping()"
     },
     {
@@ -1269,7 +1224,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L60",
       "id": "test_engram_test_ngram_hash_deterministic",
-      "community": 0,
+      "community": 12,
       "norm_label": "test_ngram_hash_deterministic()"
     },
     {
@@ -1278,7 +1233,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L70",
       "id": "test_engram_test_multi_head_embedding",
-      "community": 0,
+      "community": 9,
       "norm_label": "test_multi_head_embedding()"
     },
     {
@@ -1287,7 +1242,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L82",
       "id": "test_engram_test_short_conv",
-      "community": 0,
+      "community": 11,
       "norm_label": "test_short_conv()"
     },
     {
@@ -1296,7 +1251,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L90",
       "id": "test_engram_test_short_conv_causal",
-      "community": 0,
+      "community": 11,
       "norm_label": "test_short_conv_causal()"
     },
     {
@@ -1305,7 +1260,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L110",
       "id": "test_engram_test_engram_module_shapes",
-      "community": 0,
+      "community": 8,
       "norm_label": "test_engram_module_shapes()"
     },
     {
@@ -1314,7 +1269,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L132",
       "id": "test_engram_test_engram_retrieval_deterministic",
-      "community": 0,
+      "community": 8,
       "norm_label": "test_engram_retrieval_deterministic()"
     },
     {
@@ -1323,7 +1278,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L146",
       "id": "test_engram_test_engram_gradient_flow",
-      "community": 0,
+      "community": 9,
       "norm_label": "test_engram_gradient_flow()"
     },
     {
@@ -1332,7 +1287,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L173",
       "id": "test_engram_test_engram_different_inputs_different_outputs",
-      "community": 0,
+      "community": 7,
       "norm_label": "test_engram_different_inputs_different_outputs()"
     },
     {
@@ -1341,7 +1296,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L190",
       "id": "test_engram_test_engram_param_count",
-      "community": 0,
+      "community": 8,
       "norm_label": "test_engram_param_count()"
     },
     {
@@ -1350,7 +1305,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L1",
       "id": "test_engram_rationale_1",
-      "community": 0,
+      "community": 8,
       "norm_label": "tests for the engram module. run with: python test_engram.py"
     },
     {
@@ -1359,7 +1314,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L61",
       "id": "test_engram_rationale_61",
-      "community": 0,
+      "community": 12,
       "norm_label": "same input should always produce the same hash."
     },
     {
@@ -1368,7 +1323,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L91",
       "id": "test_engram_rationale_91",
-      "community": 0,
+      "community": 11,
       "norm_label": "output at position t should not depend on inputs at t+1."
     },
     {
@@ -1377,7 +1332,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L133",
       "id": "test_engram_rationale_133",
-      "community": 0,
+      "community": 8,
       "norm_label": "same tokens should always retrieve the same memory."
     },
     {
@@ -1386,7 +1341,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L147",
       "id": "test_engram_rationale_147",
-      "community": 0,
+      "community": 9,
       "norm_label": "ensure gradients flow through the engram module."
     },
     {
@@ -1395,7 +1350,7 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L174",
       "id": "test_engram_rationale_174",
-      "community": 0,
+      "community": 7,
       "norm_label": "different token sequences should produce different memory vectors."
     },
     {
@@ -1404,918 +1359,136 @@
       "source_file": "codes\\test_engram.py",
       "source_location": "L191",
       "id": "test_engram_rationale_191",
-      "community": 0,
+      "community": 8,
       "norm_label": "verify parameter count is reasonable."
     },
     {
-      "label": "Engram + Attention Residuals Project",
+      "label": "Codex (secondary reviewer)",
       "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_project",
-      "community": 6,
-      "norm_label": "engram + attention residuals project"
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_Codex",
+      "community": 10,
+      "norm_label": "codex (secondary reviewer)"
     },
     {
-      "label": "Engram (O(1) hash-based memory lookup)",
+      "label": "Engram (DeepSeek, arXiv 2601.07372)",
       "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": "DeepSeek",
-      "contributor": null,
-      "id": "readme_engram_concept",
-      "community": 6,
-      "norm_label": "engram (o(1) hash-based memory lookup)"
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_Engram",
+      "community": 10,
+      "norm_label": "engram (deepseek, arxiv 2601.07372)"
     },
     {
-      "label": "Attention Residuals (learned depth attention)",
+      "label": "Attention Residuals (Kimi, arXiv 2603.15031)",
       "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": "Kimi / Moonshot AI",
-      "contributor": null,
-      "id": "readme_attnres_concept",
-      "community": 6,
-      "norm_label": "attention residuals (learned depth attention)"
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_Attention_Residuals",
+      "community": 10,
+      "norm_label": "attention residuals (kimi, arxiv 2603.15031)"
     },
     {
-      "label": "Combined Engram + AttnRes",
+      "label": "codes_moe/ directory",
       "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_combined_concept",
-      "community": 6,
-      "norm_label": "combined engram + attnres"
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_codes_moe",
+      "community": 10,
+      "norm_label": "codes_moe/ directory"
     },
     {
-      "label": "Synergy rationale: AttnRes lets layers selectively upweight Engram-enriched representations",
+      "label": "Qwen3-style MoE model",
       "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_synergy_rationale",
-      "community": 6,
-      "norm_label": "synergy rationale: attnres lets layers selectively upweight engram-enriched representations"
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_Qwen3_MoE",
+      "community": 18,
+      "norm_label": "qwen3-style moe model"
     },
     {
-      "label": "Benchmark limitations: repeated proverbs favor Engram memorization",
+      "label": "EngramModule from codes/",
       "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_limitations_rationale",
-      "community": 9,
-      "norm_label": "benchmark limitations: repeated proverbs favor engram memorization"
-    },
-    {
-      "label": "Engram-27B NIAH +12.8 gain",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_niah_result",
-      "community": 6,
-      "norm_label": "engram-27b niah +12.8 gain"
-    },
-    {
-      "label": "AttnRes GPQA-Diamond +7.5 gain",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_gpqa_result",
-      "community": 6,
-      "norm_label": "attnres gpqa-diamond +7.5 gain"
-    },
-    {
-      "label": "benchmark_chart.png",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_benchmark_artifact",
-      "community": 9,
-      "norm_label": "benchmark_chart.png"
-    },
-    {
-      "label": "CLAUDE.md Repo Guidance",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude_md_guidance",
-      "community": 3,
-      "norm_label": "claude.md repo guidance"
-    },
-    {
-      "label": "Block AttnRes carries (blocks, partial_block) not x->x",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude_md_dataflow_rationale",
-      "community": 3,
-      "norm_label": "block attnres carries (blocks, partial_block) not x->x"
-    },
-    {
-      "label": "token_ids must thread through every layer for Engram retrieval",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude_md_token_thread_rationale",
-      "community": 3,
-      "norm_label": "token_ids must thread through every layer for engram retrieval"
-    },
-    {
-      "label": "Zero-init query is load-bearing (uniform softmax at start)",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude_md_zero_query_rationale",
-      "community": 3,
-      "norm_label": "zero-init query is load-bearing (uniform softmax at start)"
-    },
-    {
-      "label": "RMSNorm duplicated across files for independent importability",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude_md_rmsnorm_duplication_rationale",
-      "community": 4,
-      "norm_label": "rmsnorm duplicated across files for independent importability"
-    },
-    {
-      "label": "layer_seed = 42 + layer_idx*100 convention for hash function diversity",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude_md_layer_seed_rationale",
-      "community": 4,
-      "norm_label": "layer_seed = 42 + layer_idx*100 convention for hash function diversity"
-    },
-    {
-      "label": "Two Axes of Sparsity (MoE vs Engram)",
-      "file_type": "document",
-      "source_file": "overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "overview_two_axes_sparsity",
-      "community": 6,
-      "norm_label": "two axes of sparsity (moe vs engram)"
-    },
-    {
-      "label": "Time-Depth Duality (AttnRes motivation)",
-      "file_type": "document",
-      "source_file": "overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "overview_time_depth_duality",
-      "community": 6,
-      "norm_label": "time-depth duality (attnres motivation)"
-    },
-    {
-      "label": "Sparsity allocation law (rho ~ 0.75 for MoE)",
-      "file_type": "document",
-      "source_file": "overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "overview_sparsity_allocation_law",
-      "community": 6,
-      "norm_label": "sparsity allocation law (rho ~ 0.75 for moe)"
-    },
-    {
-      "label": "Engram layer placement (layers 2, 15)",
-      "file_type": "document",
-      "source_file": "overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "overview_layer_placement",
-      "community": 3,
-      "norm_label": "engram layer placement (layers 2, 15)"
-    },
-    {
-      "label": "Block AttnRes (practical variant, N blocks)",
-      "file_type": "document",
-      "source_file": "overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "overview_block_attnres",
-      "community": 3,
-      "norm_label": "block attnres (practical variant, n blocks)"
-    },
-    {
-      "label": "Full Attention Residuals formulation",
-      "file_type": "document",
-      "source_file": "overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "overview_full_attnres",
-      "community": 3,
-      "norm_label": "full attention residuals formulation"
-    },
-    {
-      "label": "Two-Phase Efficient Inference (parallel + sequential)",
-      "file_type": "document",
-      "source_file": "overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "overview_two_phase_inference",
-      "community": 6,
-      "norm_label": "two-phase efficient inference (parallel + sequential)"
-    },
-    {
-      "label": "Engram Retrieval + Fusion Architecture",
-      "file_type": "document",
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "codes_overview_retrieval_fusion",
-      "community": 4,
-      "norm_label": "engram retrieval + fusion architecture"
-    },
-    {
-      "label": "Tokenizer compression (NFKC + lowercasing, ~23% reduction)",
-      "file_type": "document",
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "codes_overview_tokenizer_compression",
-      "community": 4,
-      "norm_label": "tokenizer compression (nfkc + lowercasing, ~23% reduction)"
-    },
-    {
-      "label": "Multiplicative-XOR hash (Engram retrieval)",
-      "file_type": "document",
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "codes_overview_multiplicative_xor_hash",
-      "community": 4,
-      "norm_label": "multiplicative-xor hash (engram retrieval)"
-    },
-    {
-      "label": "Context-aware gating (sigmoid of query . key)",
-      "file_type": "document",
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "codes_overview_context_gating",
-      "community": 4,
-      "norm_label": "context-aware gating (sigmoid of query . key)"
-    },
-    {
-      "label": "Depthwise 1D convolution (Engram fusion step)",
-      "file_type": "document",
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "codes_overview_depthwise_conv",
-      "community": 4,
-      "norm_label": "depthwise 1d convolution (engram fusion step)"
-    },
-    {
-      "label": "Hyper-connections (M=4 branches)",
-      "file_type": "document",
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "codes_overview_hyperconnections",
-      "community": 4,
-      "norm_label": "hyper-connections (m=4 branches)"
-    },
-    {
-      "label": "EngramModule",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_EngramModule",
-      "community": 4,
-      "norm_label": "engrammodule"
-    },
-    {
-      "label": "TokenizerCompressor",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_TokenizerCompressor",
-      "community": 4,
-      "norm_label": "tokenizercompressor"
-    },
-    {
-      "label": "NgramHashMapping",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_NgramHashMapping",
-      "community": 4,
-      "norm_label": "ngramhashmapping"
-    },
-    {
-      "label": "MultiHeadEmbedding",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_MultiHeadEmbedding",
-      "community": 4,
-      "norm_label": "multiheadembedding"
-    },
-    {
-      "label": "ShortConv (depthwise conv + SiLU)",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_ShortConv",
-      "community": 4,
-      "norm_label": "shortconv (depthwise conv + silu)"
-    },
-    {
-      "label": "RMSNorm (engram.py)",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_RMSNorm",
-      "community": 4,
-      "norm_label": "rmsnorm (engram.py)"
-    },
-    {
-      "label": "EngramModule.retrieve",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_retrieve",
-      "community": 4,
-      "norm_label": "engrammodule.retrieve"
-    },
-    {
-      "label": "EngramModule.fuse",
-      "file_type": "code",
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "engram_fuse",
-      "community": 4,
-      "norm_label": "engrammodule.fuse"
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_EngramModule",
+      "community": 10,
+      "norm_label": "engrammodule from codes/"
     },
     {
       "label": "BlockAttnRes",
-      "file_type": "code",
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "attention_residuals_BlockAttnRes",
-      "community": 3,
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_BlockAttnRes",
+      "community": 10,
       "norm_label": "blockattnres"
     },
     {
-      "label": "AttnResTransformerLayer",
-      "file_type": "code",
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "attention_residuals_AttnResTransformerLayer",
-      "community": 3,
-      "norm_label": "attnrestransformerlayer"
+      "label": "combined_model.py reference",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "id": "AGENTS_md_combined_model",
+      "community": 19,
+      "norm_label": "combined_model.py reference"
     },
     {
-      "label": "AttnResTransformer",
-      "file_type": "code",
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "attention_residuals_AttnResTransformer",
-      "community": 3,
-      "norm_label": "attnrestransformer"
+      "label": "graphify command",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "id": "CLAUDE_md_graphify",
+      "community": 15,
+      "norm_label": "graphify command"
     },
     {
-      "label": "RMSNorm (attention_residuals.py)",
-      "file_type": "code",
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "attention_residuals_RMSNorm",
-      "community": 4,
-      "norm_label": "rmsnorm (attention_residuals.py)"
+      "label": "codes/ directory",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "id": "CLAUDE_md_codes",
+      "community": 15,
+      "norm_label": "codes/ directory"
     },
     {
-      "label": "_is_block_boundary (layer_idx % (block_size//2))",
-      "file_type": "code",
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "attention_residuals_is_block_boundary",
-      "community": 3,
-      "norm_label": "_is_block_boundary (layer_idx % (block_size//2))"
+      "label": "codes_moe/ directory",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "id": "CLAUDE_md_codes_moe",
+      "community": 15,
+      "norm_label": "codes_moe/ directory"
     },
     {
-      "label": "CombinedEngramAttnResTransformer",
-      "file_type": "code",
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "combined_model_CombinedEngramAttnResTransformer",
-      "community": 3,
-      "norm_label": "combinedengramattnrestransformer"
+      "label": "MoE plan",
+      "file_type": "document",
+      "source_file": "codes_moe/PLAN.md",
+      "id": "PLAN_md_moe_plan",
+      "community": 10,
+      "norm_label": "moe plan"
     },
     {
-      "label": "CombinedTransformerLayer",
-      "file_type": "code",
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "combined_model_CombinedTransformerLayer",
-      "community": 3,
-      "norm_label": "combinedtransformerlayer"
+      "label": "Qwen3 architecture",
+      "file_type": "document",
+      "source_file": "codes_moe/PLAN.md",
+      "id": "PLAN_md_qwen3",
+      "community": 10,
+      "norm_label": "qwen3 architecture"
     },
     {
-      "label": "SwiGLU",
-      "file_type": "code",
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "combined_model_SwiGLU",
-      "community": 3,
-      "norm_label": "swiglu"
+      "label": "Asimov_the_foundation.pdf (training data)",
+      "file_type": "document",
+      "source_file": "test_data/Asimov_the_foundation.pdf",
+      "id": "Asimov_the_foundation_pdf",
+      "community": 16,
+      "norm_label": "asimov_the_foundation.pdf (training data)"
     },
     {
-      "label": "param_summary (by name substring)",
-      "file_type": "code",
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "combined_model_param_summary",
-      "community": 3,
-      "norm_label": "param_summary (by name substring)"
+      "label": "GRAPH_REPORT.md",
+      "file_type": "document",
+      "source_file": "graphify-out/GRAPH_REPORT.md",
+      "id": "graphify_out_GRAPH_REPORT_md",
+      "community": 16,
+      "norm_label": "graph_report.md"
     },
     {
-      "label": "EngramOnlyTransformer (benchmark baseline)",
-      "file_type": "code",
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "benchmark_EngramOnlyTransformer",
-      "community": 3,
-      "norm_label": "engramonlytransformer (benchmark baseline)"
-    },
-    {
-      "label": "EngramOnlyTransformerLayer",
-      "file_type": "code",
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "benchmark_EngramOnlyTransformerLayer",
-      "community": 3,
-      "norm_label": "engramonlytransformerlayer"
-    },
-    {
-      "label": "CharDataset (byte-level)",
-      "file_type": "code",
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "benchmark_CharDataset",
-      "community": 3,
-      "norm_label": "chardataset (byte-level)"
-    },
-    {
-      "label": "SAMPLE_TEXT (repeated proverbs x500)",
-      "file_type": "code",
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "benchmark_SAMPLE_TEXT",
-      "community": 3,
-      "norm_label": "sample_text (repeated proverbs x500)"
-    },
-    {
-      "label": "test_engram.py suite (13 tests)",
-      "file_type": "code",
-      "source_file": "codes/test_engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "test_engram_suite",
-      "community": 4,
-      "norm_label": "test_engram.py suite (13 tests)"
-    },
-    {
-      "label": "test_attention_residuals.py suite (13 tests)",
-      "file_type": "code",
-      "source_file": "codes/test_attention_residuals.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "test_attention_residuals_suite",
-      "community": 3,
-      "norm_label": "test_attention_residuals.py suite (13 tests)"
-    },
-    {
-      "label": "test_combined.py suite (6 tests)",
-      "file_type": "code",
-      "source_file": "codes/test_combined.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "test_combined_suite",
-      "community": 3,
-      "norm_label": "test_combined.py suite (6 tests)"
-    },
-    {
-      "label": "test_short_conv_causal (causality invariant)",
-      "file_type": "code",
-      "source_file": "codes/test_engram.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "test_engram_short_conv_causal",
-      "community": 4,
-      "norm_label": "test_short_conv_causal (causality invariant)"
-    },
-    {
-      "label": "test_block_attn_res_zero_query_init",
-      "file_type": "code",
-      "source_file": "codes/test_attention_residuals.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "test_attention_residuals_zero_query_init",
-      "community": 3,
-      "norm_label": "test_block_attn_res_zero_query_init"
-    },
-    {
-      "label": "test_engram_only_at_designated_layers",
-      "file_type": "code",
-      "source_file": "codes/test_combined.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "test_combined_engram_only_at_designated_layers",
-      "community": 3,
-      "norm_label": "test_engram_only_at_designated_layers"
-    },
-    {
-      "label": "Attention Residuals (arXiv:2603.15031)",
-      "file_type": "paper",
-      "source_file": "papers/Attention_Residuals.pdf",
-      "source_location": null,
-      "source_url": "https://arxiv.org/abs/2603.15031",
-      "captured_at": null,
-      "author": "Kimi Team / Moonshot AI",
-      "contributor": null,
-      "id": "Attention_Residuals_paper",
-      "community": 6,
-      "norm_label": "attention residuals (arxiv:2603.15031)"
-    },
-    {
-      "label": "Engram: Conditional Memory via Scalable Lookup (arXiv:2601.07372)",
-      "file_type": "paper",
-      "source_file": "papers/Engram.pdf",
-      "source_location": null,
-      "source_url": "https://arxiv.org/abs/2601.07372",
-      "captured_at": null,
-      "author": "Xin Cheng, Wangding Zeng, Damai Dai, et al. (DeepSeek)",
-      "contributor": null,
-      "id": "Engram_paper",
-      "community": 6,
-      "norm_label": "engram: conditional memory via scalable lookup (arxiv:2601.07372)"
-    },
-    {
-      "label": "Benchmark Chart: Training Loss & Final Performance",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "chart_benchmark",
-      "community": 7,
-      "norm_label": "benchmark chart: training loss & final performance"
-    },
-    {
-      "label": "Training Loss Curves (Loss vs Training Step 0-500)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "chart_training_loss_curves",
-      "community": 7,
-      "norm_label": "training loss curves (loss vs training step 0-500)"
-    },
-    {
-      "label": "Final Performance Comparison (Avg Loss last 50 steps)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "chart_final_performance",
-      "community": 7,
-      "norm_label": "final performance comparison (avg loss last 50 steps)"
-    },
-    {
-      "label": "AttnRes Only (final avg loss 0.0777)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "model_attnres_only",
-      "community": 7,
-      "norm_label": "attnres only (final avg loss 0.0777)"
-    },
-    {
-      "label": "Engram Only (final avg loss 0.0373)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "model_engram_only",
-      "community": 7,
-      "norm_label": "engram only (final avg loss 0.0373)"
-    },
-    {
-      "label": "Combined Engram+AttnRes (final avg loss 0.0376)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "model_combined",
-      "community": 7,
-      "norm_label": "combined engram+attnres (final avg loss 0.0376)"
-    },
-    {
-      "label": "Training Loss (smoothed)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "metric_training_loss",
-      "community": 7,
-      "norm_label": "training loss (smoothed)"
-    },
-    {
-      "label": "Avg Loss over last 50 training steps",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "metric_avg_loss_last50",
-      "community": 7,
-      "norm_label": "avg loss over last 50 training steps"
-    },
-    {
-      "label": "Training Step axis (0 to 500)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "axis_training_step",
-      "community": 7,
-      "norm_label": "training step axis (0 to 500)"
-    },
-    {
-      "label": "Character-level Language Modeling task",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "task_charlm",
-      "community": 7,
-      "norm_label": "character-level language modeling task"
-    },
-    {
-      "label": "Insight: Engram and Combined variants converge faster and to ~half the final loss of AttnRes Only",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "insight_engram_beats_attnres",
-      "community": 7,
-      "norm_label": "insight: engram and combined variants converge faster and to ~half the final loss of attnres only"
-    },
-    {
-      "label": "Insight: Engram Only and Combined perform nearly identically (0.0373 vs 0.0376)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "insight_engram_combined_tie",
-      "community": 7,
-      "norm_label": "insight: engram only and combined perform nearly identically (0.0373 vs 0.0376)"
-    },
-    {
-      "label": "benchmark.py (source script)",
-      "file_type": "image",
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "script_benchmark_py",
-      "community": 7,
-      "norm_label": "benchmark.py (source script)"
+      "label": "graph.html",
+      "file_type": "document",
+      "source_file": "graphify-out/graph.html",
+      "id": "graphify_out_graph_html",
+      "community": 16,
+      "norm_label": "graph.html"
     }
   ],
   "links": [
@@ -4012,54 +3185,6 @@
       "confidence_score": 0.5
     },
     {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_train_model",
-      "_tgt": "benchmark_EngramOnlyTransformer",
-      "source": "benchmark_train_model",
-      "target": "benchmark_EngramOnlyTransformer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_train_model",
-      "_tgt": "attention_residuals_AttnResTransformer",
-      "source": "benchmark_train_model",
-      "target": "attention_residuals_AttnResTransformer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_train_model",
-      "_tgt": "combined_model_CombinedEngramAttnResTransformer",
-      "source": "benchmark_train_model",
-      "target": "combined_model_CombinedEngramAttnResTransformer"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_train_model",
-      "_tgt": "benchmark_CharDataset",
-      "source": "benchmark_train_model",
-      "target": "benchmark_CharDataset"
-    },
-    {
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "codes\\benchmark.py",
@@ -4934,18 +4059,6 @@
       "_tgt": "engram_next_prime",
       "source": "engram_next_prime",
       "target": "test_engram_test_next_prime"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_NgramHashMapping",
-      "_tgt": "engram_next_prime",
-      "source": "engram_next_prime",
-      "target": "engram_NgramHashMapping"
     },
     {
       "relation": "method",
@@ -6691,1197 +5804,122 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_project",
-      "_tgt": "readme_engram_concept",
-      "source": "readme_project",
-      "target": "readme_engram_concept"
+      "source_file": "AGENTS.md",
+      "_src": "AGENTS_md_Engram",
+      "_tgt": "AGENTS_md_Codex",
+      "source": "AGENTS_md_Codex",
+      "target": "AGENTS_md_Engram"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_project",
-      "_tgt": "readme_attnres_concept",
-      "source": "readme_project",
-      "target": "readme_attnres_concept"
+      "source_file": "AGENTS.md",
+      "_src": "AGENTS_md_Attention_Residuals",
+      "_tgt": "AGENTS_md_Codex",
+      "source": "AGENTS_md_Codex",
+      "target": "AGENTS_md_Attention_Residuals"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "AGENTS.md",
+      "_src": "AGENTS_md_Engram",
+      "_tgt": "AGENTS_md_codes_moe",
+      "source": "AGENTS_md_Engram",
+      "target": "AGENTS_md_codes_moe"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "_src": "AGENTS_md_EngramModule",
+      "_tgt": "AGENTS_md_Engram",
+      "source": "AGENTS_md_Engram",
+      "target": "AGENTS_md_EngramModule"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "AGENTS.md",
+      "_src": "AGENTS_md_Attention_Residuals",
+      "_tgt": "AGENTS_md_codes_moe",
+      "source": "AGENTS_md_Attention_Residuals",
+      "target": "AGENTS_md_codes_moe"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "_src": "AGENTS_md_BlockAttnRes",
+      "_tgt": "AGENTS_md_Attention_Residuals",
+      "source": "AGENTS_md_Attention_Residuals",
+      "target": "AGENTS_md_BlockAttnRes"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_project",
-      "_tgt": "readme_combined_concept",
-      "source": "readme_project",
-      "target": "readme_combined_concept"
-    },
-    {
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_project",
-      "_tgt": "Engram_paper",
-      "source": "readme_project",
-      "target": "Engram_paper"
-    },
-    {
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_project",
-      "_tgt": "Attention_Residuals_paper",
-      "source": "readme_project",
-      "target": "Attention_Residuals_paper"
+      "source_file": "AGENTS.md",
+      "_src": "AGENTS_md_codes_moe",
+      "_tgt": "PLAN_md_moe_plan",
+      "source": "AGENTS_md_codes_moe",
+      "target": "PLAN_md_moe_plan"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_niah_result",
-      "_tgt": "readme_engram_concept",
-      "source": "readme_engram_concept",
-      "target": "readme_niah_result"
+      "source_file": "CLAUDE.md",
+      "_src": "CLAUDE_md_codes",
+      "_tgt": "CLAUDE_md_graphify",
+      "source": "CLAUDE_md_graphify",
+      "target": "CLAUDE_md_codes"
     },
     {
-      "relation": "cites",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_engram_concept",
-      "_tgt": "Engram_paper",
-      "source": "readme_engram_concept",
-      "target": "Engram_paper"
+      "source_file": "CLAUDE.md",
+      "_src": "CLAUDE_md_codes_moe",
+      "_tgt": "CLAUDE_md_graphify",
+      "source": "CLAUDE_md_graphify",
+      "target": "CLAUDE_md_codes_moe"
     },
     {
-      "relation": "conceptually_related_to",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "overview_two_axes_sparsity",
-      "_tgt": "readme_engram_concept",
-      "source": "readme_engram_concept",
-      "target": "overview_two_axes_sparsity"
+      "source_file": "codes_moe/PLAN.md",
+      "_src": "PLAN_md_qwen3",
+      "_tgt": "PLAN_md_moe_plan",
+      "source": "PLAN_md_moe_plan",
+      "target": "PLAN_md_qwen3"
     },
     {
-      "relation": "semantically_similar_to",
+      "relation": "references",
       "confidence": "INFERRED",
       "confidence_score": 0.6,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_engram_concept",
-      "_tgt": "readme_attnres_concept",
-      "source": "readme_engram_concept",
-      "target": "readme_attnres_concept"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_gpqa_result",
-      "_tgt": "readme_attnres_concept",
-      "source": "readme_attnres_concept",
-      "target": "readme_gpqa_result"
-    },
-    {
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_attnres_concept",
-      "_tgt": "Attention_Residuals_paper",
-      "source": "readme_attnres_concept",
-      "target": "Attention_Residuals_paper"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "overview_time_depth_duality",
-      "_tgt": "readme_attnres_concept",
-      "source": "readme_attnres_concept",
-      "target": "overview_time_depth_duality"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_synergy_rationale",
-      "_tgt": "readme_combined_concept",
-      "source": "readme_combined_concept",
-      "target": "readme_synergy_rationale"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "readme_limitations_rationale",
-      "_tgt": "readme_benchmark_artifact",
-      "source": "readme_limitations_rationale",
-      "target": "readme_benchmark_artifact"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_guidance",
-      "_tgt": "benchmark_EngramOnlyTransformer",
-      "source": "claude_md_guidance",
-      "target": "benchmark_EngramOnlyTransformer"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_dataflow_rationale",
-      "_tgt": "attention_residuals_AttnResTransformerLayer",
-      "source": "claude_md_dataflow_rationale",
-      "target": "attention_residuals_AttnResTransformerLayer"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_dataflow_rationale",
-      "_tgt": "combined_model_CombinedTransformerLayer",
-      "source": "claude_md_dataflow_rationale",
-      "target": "combined_model_CombinedTransformerLayer"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_token_thread_rationale",
-      "_tgt": "combined_model_CombinedEngramAttnResTransformer",
-      "source": "claude_md_token_thread_rationale",
-      "target": "combined_model_CombinedEngramAttnResTransformer"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_zero_query_rationale",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "claude_md_zero_query_rationale",
-      "target": "attention_residuals_BlockAttnRes"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "codes/test_attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_attention_residuals_zero_query_init",
-      "_tgt": "claude_md_zero_query_rationale",
-      "source": "claude_md_zero_query_rationale",
-      "target": "test_attention_residuals_zero_query_init"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_rmsnorm_duplication_rationale",
-      "_tgt": "engram_RMSNorm",
-      "source": "claude_md_rmsnorm_duplication_rationale",
-      "target": "engram_RMSNorm"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_rmsnorm_duplication_rationale",
-      "_tgt": "attention_residuals_RMSNorm",
-      "source": "claude_md_rmsnorm_duplication_rationale",
-      "target": "attention_residuals_RMSNorm"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "claude_md_layer_seed_rationale",
-      "_tgt": "engram_NgramHashMapping",
-      "source": "claude_md_layer_seed_rationale",
-      "target": "engram_NgramHashMapping"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "overview_sparsity_allocation_law",
-      "_tgt": "Engram_paper",
-      "source": "overview_sparsity_allocation_law",
-      "target": "Engram_paper"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "overview_layer_placement",
-      "_tgt": "combined_model_CombinedEngramAttnResTransformer",
-      "source": "overview_layer_placement",
-      "target": "combined_model_CombinedEngramAttnResTransformer"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "overview_block_attnres",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "overview_block_attnres",
-      "target": "attention_residuals_BlockAttnRes"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "overview_full_attnres",
-      "_tgt": "overview_block_attnres",
-      "source": "overview_block_attnres",
-      "target": "overview_full_attnres"
-    },
-    {
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "overview_two_phase_inference",
-      "_tgt": "Attention_Residuals_paper",
-      "source": "overview_two_phase_inference",
-      "target": "Attention_Residuals_paper"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "codes_overview_retrieval_fusion",
-      "_tgt": "engram_EngramModule",
-      "source": "codes_overview_retrieval_fusion",
-      "target": "engram_EngramModule"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "codes_overview_tokenizer_compression",
-      "_tgt": "engram_TokenizerCompressor",
-      "source": "codes_overview_tokenizer_compression",
-      "target": "engram_TokenizerCompressor"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "codes_overview_multiplicative_xor_hash",
-      "_tgt": "engram_NgramHashMapping",
-      "source": "codes_overview_multiplicative_xor_hash",
-      "target": "engram_NgramHashMapping"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "codes_overview_context_gating",
-      "_tgt": "engram_fuse",
-      "source": "codes_overview_context_gating",
-      "target": "engram_fuse"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "codes_overview_depthwise_conv",
-      "_tgt": "engram_ShortConv",
-      "source": "codes_overview_depthwise_conv",
-      "target": "engram_ShortConv"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "codes/overview.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "codes_overview_hyperconnections",
-      "_tgt": "engram_EngramModule",
-      "source": "codes_overview_hyperconnections",
-      "target": "engram_EngramModule"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_EngramModule",
-      "_tgt": "engram_TokenizerCompressor",
-      "source": "engram_EngramModule",
-      "target": "engram_TokenizerCompressor"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_EngramModule",
-      "_tgt": "engram_NgramHashMapping",
-      "source": "engram_EngramModule",
-      "target": "engram_NgramHashMapping"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_EngramModule",
-      "_tgt": "engram_MultiHeadEmbedding",
-      "source": "engram_EngramModule",
-      "target": "engram_MultiHeadEmbedding"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_EngramModule",
-      "_tgt": "engram_ShortConv",
-      "source": "engram_EngramModule",
-      "target": "engram_ShortConv"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_EngramModule",
-      "_tgt": "engram_retrieve",
-      "source": "engram_EngramModule",
-      "target": "engram_retrieve"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_EngramModule",
-      "_tgt": "engram_fuse",
-      "source": "engram_EngramModule",
-      "target": "engram_fuse"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_EngramModule",
-      "_tgt": "Engram_paper",
-      "source": "engram_EngramModule",
-      "target": "Engram_paper"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_CombinedTransformerLayer",
-      "_tgt": "engram_EngramModule",
-      "source": "engram_EngramModule",
-      "target": "combined_model_CombinedTransformerLayer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_EngramOnlyTransformerLayer",
-      "_tgt": "engram_EngramModule",
-      "source": "engram_EngramModule",
-      "target": "benchmark_EngramOnlyTransformerLayer"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_engram_suite",
-      "_tgt": "engram_EngramModule",
-      "source": "engram_EngramModule",
-      "target": "test_engram_suite"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_retrieve",
-      "_tgt": "engram_TokenizerCompressor",
-      "source": "engram_TokenizerCompressor",
-      "target": "engram_retrieve"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_retrieve",
-      "_tgt": "engram_NgramHashMapping",
-      "source": "engram_NgramHashMapping",
-      "target": "engram_retrieve"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_MultiHeadEmbedding",
-      "_tgt": "engram_NgramHashMapping",
-      "source": "engram_NgramHashMapping",
-      "target": "engram_MultiHeadEmbedding"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_engram_suite",
-      "_tgt": "engram_NgramHashMapping",
-      "source": "engram_NgramHashMapping",
-      "target": "test_engram_suite"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_retrieve",
-      "_tgt": "engram_MultiHeadEmbedding",
-      "source": "engram_MultiHeadEmbedding",
-      "target": "engram_retrieve"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_fuse",
-      "_tgt": "engram_ShortConv",
-      "source": "engram_ShortConv",
-      "target": "engram_fuse"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_ShortConv",
-      "_tgt": "engram_RMSNorm",
-      "source": "engram_ShortConv",
-      "target": "engram_RMSNorm"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_engram_suite",
-      "_tgt": "engram_ShortConv",
-      "source": "engram_ShortConv",
-      "target": "test_engram_suite"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_engram_short_conv_causal",
-      "_tgt": "engram_ShortConv",
-      "source": "engram_ShortConv",
-      "target": "test_engram_short_conv_causal"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_fuse",
-      "_tgt": "engram_RMSNorm",
-      "source": "engram_RMSNorm",
-      "target": "engram_fuse"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "engram_RMSNorm",
-      "_tgt": "attention_residuals_RMSNorm",
-      "source": "engram_RMSNorm",
-      "target": "attention_residuals_RMSNorm"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "attention_residuals_AttnResTransformer",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "attention_residuals_BlockAttnRes",
-      "target": "attention_residuals_AttnResTransformer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "attention_residuals_AttnResTransformerLayer",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "attention_residuals_BlockAttnRes",
-      "target": "attention_residuals_AttnResTransformerLayer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "attention_residuals_BlockAttnRes",
-      "_tgt": "attention_residuals_RMSNorm",
-      "source": "attention_residuals_BlockAttnRes",
-      "target": "attention_residuals_RMSNorm"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_CombinedEngramAttnResTransformer",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "attention_residuals_BlockAttnRes",
-      "target": "combined_model_CombinedEngramAttnResTransformer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_CombinedTransformerLayer",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "attention_residuals_BlockAttnRes",
-      "target": "combined_model_CombinedTransformerLayer"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_attention_residuals_suite",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "attention_residuals_BlockAttnRes",
-      "target": "test_attention_residuals_suite"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_attention_residuals_zero_query_init",
-      "_tgt": "attention_residuals_BlockAttnRes",
-      "source": "attention_residuals_BlockAttnRes",
-      "target": "test_attention_residuals_zero_query_init"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "attention_residuals_AttnResTransformer",
-      "_tgt": "attention_residuals_AttnResTransformerLayer",
-      "source": "attention_residuals_AttnResTransformerLayer",
-      "target": "attention_residuals_AttnResTransformer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "attention_residuals_AttnResTransformerLayer",
-      "_tgt": "attention_residuals_is_block_boundary",
-      "source": "attention_residuals_AttnResTransformerLayer",
-      "target": "attention_residuals_is_block_boundary"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_CombinedTransformerLayer",
-      "_tgt": "attention_residuals_AttnResTransformerLayer",
-      "source": "attention_residuals_AttnResTransformerLayer",
-      "target": "combined_model_CombinedTransformerLayer"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_SwiGLU",
-      "_tgt": "attention_residuals_AttnResTransformerLayer",
-      "source": "attention_residuals_AttnResTransformerLayer",
-      "target": "combined_model_SwiGLU"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "attention_residuals_AttnResTransformer",
-      "_tgt": "Attention_Residuals_paper",
-      "source": "attention_residuals_AttnResTransformer",
-      "target": "Attention_Residuals_paper"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_EngramOnlyTransformer",
-      "_tgt": "attention_residuals_AttnResTransformer",
-      "source": "attention_residuals_AttnResTransformer",
-      "target": "benchmark_EngramOnlyTransformer"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_attention_residuals.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_attention_residuals_suite",
-      "_tgt": "attention_residuals_AttnResTransformer",
-      "source": "attention_residuals_AttnResTransformer",
-      "target": "test_attention_residuals_suite"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_CombinedEngramAttnResTransformer",
-      "_tgt": "combined_model_CombinedTransformerLayer",
-      "source": "combined_model_CombinedEngramAttnResTransformer",
-      "target": "combined_model_CombinedTransformerLayer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_CombinedEngramAttnResTransformer",
-      "_tgt": "combined_model_param_summary",
-      "source": "combined_model_CombinedEngramAttnResTransformer",
-      "target": "combined_model_param_summary"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_EngramOnlyTransformer",
-      "_tgt": "combined_model_CombinedEngramAttnResTransformer",
-      "source": "combined_model_CombinedEngramAttnResTransformer",
-      "target": "benchmark_EngramOnlyTransformer"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_combined.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_combined_suite",
-      "_tgt": "combined_model_CombinedEngramAttnResTransformer",
-      "source": "combined_model_CombinedEngramAttnResTransformer",
-      "target": "test_combined_suite"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_CombinedTransformerLayer",
-      "_tgt": "combined_model_SwiGLU",
-      "source": "combined_model_CombinedTransformerLayer",
-      "target": "combined_model_SwiGLU"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/test_combined.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "test_combined_engram_only_at_designated_layers",
-      "_tgt": "combined_model_CombinedTransformerLayer",
-      "source": "combined_model_CombinedTransformerLayer",
-      "target": "test_combined_engram_only_at_designated_layers"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "codes/combined_model.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "combined_model_SwiGLU",
-      "_tgt": "benchmark_EngramOnlyTransformerLayer",
-      "source": "combined_model_SwiGLU",
-      "target": "benchmark_EngramOnlyTransformerLayer"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_EngramOnlyTransformer",
-      "_tgt": "benchmark_EngramOnlyTransformerLayer",
-      "source": "benchmark_EngramOnlyTransformer",
-      "target": "benchmark_EngramOnlyTransformerLayer"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "benchmark_CharDataset",
-      "_tgt": "benchmark_SAMPLE_TEXT",
-      "source": "benchmark_CharDataset",
-      "target": "benchmark_SAMPLE_TEXT"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_benchmark",
-      "_tgt": "chart_training_loss_curves",
-      "source": "chart_benchmark",
-      "target": "chart_training_loss_curves"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_benchmark",
-      "_tgt": "chart_final_performance",
-      "source": "chart_benchmark",
-      "target": "chart_final_performance"
-    },
-    {
-      "relation": "shows",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_benchmark",
-      "_tgt": "insight_engram_beats_attnres",
-      "source": "chart_benchmark",
-      "target": "insight_engram_beats_attnres"
-    },
-    {
-      "relation": "shows",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_benchmark",
-      "_tgt": "insight_engram_combined_tie",
-      "source": "chart_benchmark",
-      "target": "insight_engram_combined_tie"
+      "source_file": "graphify-out/GRAPH_REPORT.md",
+      "_src": "Asimov_the_foundation_pdf",
+      "_tgt": "graphify_out_GRAPH_REPORT_md",
+      "source": "Asimov_the_foundation_pdf",
+      "target": "graphify_out_GRAPH_REPORT_md"
     },
     {
       "relation": "references",
       "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_benchmark",
-      "_tgt": "script_benchmark_py",
-      "source": "chart_benchmark",
-      "target": "script_benchmark_py"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_benchmark",
-      "_tgt": "task_charlm",
-      "source": "chart_benchmark",
-      "target": "task_charlm"
-    },
-    {
-      "relation": "shows",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_training_loss_curves",
-      "_tgt": "metric_training_loss",
-      "source": "chart_training_loss_curves",
-      "target": "metric_training_loss"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_training_loss_curves",
-      "_tgt": "axis_training_step",
-      "source": "chart_training_loss_curves",
-      "target": "axis_training_step"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_training_loss_curves",
-      "_tgt": "model_attnres_only",
-      "source": "chart_training_loss_curves",
-      "target": "model_attnres_only"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_training_loss_curves",
-      "_tgt": "model_engram_only",
-      "source": "chart_training_loss_curves",
-      "target": "model_engram_only"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_training_loss_curves",
-      "_tgt": "model_combined",
-      "source": "chart_training_loss_curves",
-      "target": "model_combined"
-    },
-    {
-      "relation": "shows",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_final_performance",
-      "_tgt": "metric_avg_loss_last50",
-      "source": "chart_final_performance",
-      "target": "metric_avg_loss_last50"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_final_performance",
-      "_tgt": "model_attnres_only",
-      "source": "chart_final_performance",
-      "target": "model_attnres_only"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_final_performance",
-      "_tgt": "model_engram_only",
-      "source": "chart_final_performance",
-      "target": "model_engram_only"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "chart_final_performance",
-      "_tgt": "model_combined",
-      "source": "chart_final_performance",
-      "target": "model_combined"
-    },
-    {
-      "relation": "outperforms",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "model_engram_only",
-      "_tgt": "model_attnres_only",
-      "source": "model_attnres_only",
-      "target": "model_engram_only"
-    },
-    {
-      "relation": "outperforms",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "model_combined",
-      "_tgt": "model_attnres_only",
-      "source": "model_attnres_only",
-      "target": "model_combined"
-    },
-    {
-      "relation": "compared_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark_chart.png",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "model_engram_only",
-      "_tgt": "model_combined",
-      "source": "model_engram_only",
-      "target": "model_combined"
+      "confidence_score": 0.6,
+      "source_file": "graphify-out/graph.html",
+      "_src": "Asimov_the_foundation_pdf",
+      "_tgt": "graphify_out_graph_html",
+      "source": "Asimov_the_foundation_pdf",
+      "target": "graphify_out_graph_html"
     }
   ],
-  "hyperedges": [
-    {
-      "id": "three_model_variants_benchmark",
-      "label": "Three model variants trained side-by-side in benchmark",
-      "nodes": [
-        "attention_residuals_AttnResTransformer",
-        "benchmark_EngramOnlyTransformer",
-        "combined_model_CombinedEngramAttnResTransformer",
-        "benchmark_train_model"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/benchmark.py"
-    },
-    {
-      "id": "engram_retrieval_pipeline",
-      "label": "Engram retrieval pipeline: compressor -> ngram hash -> multi-head embedding tables",
-      "nodes": [
-        "engram_TokenizerCompressor",
-        "engram_NgramHashMapping",
-        "engram_MultiHeadEmbedding",
-        "engram_retrieve"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codes/engram.py"
-    },
-    {
-      "id": "block_attnres_dataflow",
-      "label": "Block AttnRes dataflow: two AttnRes per layer around attention and MLP with block-boundary state",
-      "nodes": [
-        "attention_residuals_BlockAttnRes",
-        "attention_residuals_AttnResTransformerLayer",
-        "attention_residuals_is_block_boundary",
-        "combined_model_CombinedTransformerLayer"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md"
-    }
-  ]
+  "hyperedges": []
 }

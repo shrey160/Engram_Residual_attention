@@ -1,24 +1,35 @@
 # Graph Report - .  (2026-04-22)
 
 ## Corpus Check
-- Corpus is ~39,893 words - fits in a single context window. You may not need a graph.
+- 19 files · ~284,430 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 221 nodes · 460 edges · 10 communities detected
-- Extraction: 57% EXTRACTED · 43% INFERRED · 0% AMBIGUOUS · INFERRED: 196 edges (avg confidence: 0.59)
+- 167 nodes · 371 edges · 20 communities detected
+- Extraction: 50% EXTRACTED · 50% INFERRED · 0% AMBIGUOUS · INFERRED: 185 edges (avg confidence: 0.57)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Engram Implementation Internals|Engram Implementation Internals]]
-- [[_COMMUNITY_AttnRes Implementation Internals|AttnRes Implementation Internals]]
-- [[_COMMUNITY_BlockAttnRes & Benchmark Harness|BlockAttnRes & Benchmark Harness]]
-- [[_COMMUNITY_Cross-File Architecture Narrative|Cross-File Architecture Narrative]]
-- [[_COMMUNITY_Engram Retrieval-Fusion Concepts|Engram Retrieval-Fusion Concepts]]
-- [[_COMMUNITY_Combined Model Test Suite|Combined Model Test Suite]]
-- [[_COMMUNITY_Paper Concepts & Synergy|Paper Concepts & Synergy]]
-- [[_COMMUNITY_Benchmark Chart Findings|Benchmark Chart Findings]]
-- [[_COMMUNITY_Engram Retrieve-Fuse Methods|Engram Retrieve-Fuse Methods]]
-- [[_COMMUNITY_Benchmark Caveats Bridge|Benchmark Caveats Bridge]]
+- [[_COMMUNITY_Engram Module|Engram Module]]
+- [[_COMMUNITY_Attention Residuals|Attention Residuals]]
+- [[_COMMUNITY_Combined Model|Combined Model]]
+- [[_COMMUNITY_Transformer Layers|Transformer Layers]]
+- [[_COMMUNITY_Training & Data|Training & Data]]
+- [[_COMMUNITY_Code Structure|Code Structure]]
+- [[_COMMUNITY_Model Components|Model Components]]
+- [[_COMMUNITY_Testing|Testing]]
+- [[_COMMUNITY_Overview & Docs|Overview & Docs]]
+- [[_COMMUNITY_Research Papers|Research Papers]]
+- [[_COMMUNITY_Attention Mechanism|Attention Mechanism]]
+- [[_COMMUNITY_Hash Retrieval|Hash Retrieval]]
+- [[_COMMUNITY_Residual Connections|Residual Connections]]
+- [[_COMMUNITY_MLP Layers|MLP Layers]]
+- [[_COMMUNITY_RMSNorm|RMSNorm]]
+- [[_COMMUNITY_Qwen3 Architecture|Qwen3 Architecture]]
+- [[_COMMUNITY_MoE Experts|MoE Experts]]
+- [[_COMMUNITY_Training Pipeline|Training Pipeline]]
+- [[_COMMUNITY_Benchmarking|Benchmarking]]
+- [[_COMMUNITY_Data Loading|Data Loading]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `EngramModule` - 34 edges
@@ -33,9 +44,9 @@
 10. `ShortConv` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Engram layer placement (layers 2, 15)` --rationale_for--> `CombinedEngramAttnResTransformer`  [INFERRED]
-  overview.md → codes/combined_model.py
 - `test_block_attn_res_shapes()` --calls--> `BlockAttnRes`  [INFERRED]
+  codes\test_attention_residuals.py → codes\attention_residuals.py
+- `test_transformer_layer_shapes()` --calls--> `AttnResTransformerLayer`  [INFERRED]
   codes\test_attention_residuals.py → codes\attention_residuals.py
 - `test_rms_norm()` --calls--> `RMSNorm`  [INFERRED]
   codes\test_attention_residuals.py → codes\engram.py
@@ -44,68 +55,107 @@
 - `test_engram_module_shapes()` --calls--> `EngramModule`  [INFERRED]
   codes\test_engram.py → codes\engram.py
 
-## Hyperedges (group relationships)
-- **Three model variants trained side-by-side in benchmark** — attention_residuals_AttnResTransformer, benchmark_EngramOnlyTransformer, combined_model_CombinedEngramAttnResTransformer, benchmark_train_model [EXTRACTED 1.00]
-- **Engram retrieval pipeline: compressor -> ngram hash -> multi-head embedding tables** — engram_TokenizerCompressor, engram_NgramHashMapping, engram_MultiHeadEmbedding, engram_retrieve [EXTRACTED 1.00]
-- **Block AttnRes dataflow: two AttnRes per layer around attention and MLP with block-boundary state** — attention_residuals_BlockAttnRes, attention_residuals_AttnResTransformerLayer, attention_residuals_is_block_boundary, combined_model_CombinedTransformerLayer [EXTRACTED 1.00]
-
 ## Communities
 
-### Community 0 - "Engram Implementation Internals"
-Cohesion: 0.08
-Nodes (35): MultiHeadEmbedding, _next_prime(), NgramHashMapping, Engram: Conditional Memory via Scalable Lookup Based on DeepSeek's paper (arXiv, Args:             compressed_ngrams: [batch, seq_len, ngram_size] compressed to, Multiple embedding tables for a single n-gram order.     Each head has its own, Args:             hash_indices: [batch, seq_len, num_heads]          Returns:, Depthwise convolution with SiLU activation and residual connection.     Equatio (+27 more)
+### Community 0 - "Engram Module"
+Cohesion: 0.14
+Nodes (12): CombinedTransformerLayer, Combined Model: Engram + Attention Residuals Integrates DeepSeek's Engram (cond, Forward pass.          Args:             blocks: Completed block representati, SwiGLU feed-forward network., Transformer layer with both Block AttnRes and optional Engram injection., SwiGLU, EngramModule, Complete Engram module: Retrieval (hash lookup) + Fusion (gating + conv). (+4 more)
 
-### Community 1 - "AttnRes Implementation Internals"
-Cohesion: 0.09
-Nodes (32): AttnResTransformer, AttnResTransformerLayer, Attention Residuals (AttnRes) Based on the Kimi team's paper (arXiv: 2603.15031, Check if this layer starts a new block., Forward pass with Block Attention Residuals.          Args:             block, Root Mean Square Layer Normalization., Full Transformer with Block Attention Residuals.      Args:         vocab_siz, Args:             input_ids: [B, T] token IDs             labels: [B, T] targe (+24 more)
+### Community 1 - "Attention Residuals"
+Cohesion: 0.18
+Nodes (15): AttnResTransformer, Full Transformer with Block Attention Residuals.      Args:         vocab_siz, Args:             input_ids: [B, T] token IDs             labels: [B, T] targe, Tests for the Attention Residuals module. Run with: python test_attention_resid, Ensure full backward pass works without errors., AttnRes should add negligible parameters., Verify token embedding and lm_head share weights., test_attn_res_params_are_tiny() (+7 more)
 
-### Community 2 - "BlockAttnRes & Benchmark Harness"
-Cohesion: 0.11
-Nodes (21): BlockAttnRes, Block Attention Residuals module.      Instead of fixed h_l = h_{l-1} + f_{l-1, Compute attention-weighted combination over depth.          Args:, CharDataset, EngramOnlyTransformer, EngramOnlyTransformerLayer, Benchmark: Compare AttnRes-only, Engram-only (baseline transformer + Engram), a, CombinedTransformerLayer (+13 more)
-
-### Community 3 - "Cross-File Architecture Narrative"
-Cohesion: 0.12
-Nodes (24): AttnResTransformer, AttnResTransformerLayer, BlockAttnRes, _is_block_boundary (layer_idx % (block_size//2)), CharDataset (byte-level), EngramOnlyTransformer (benchmark baseline), EngramOnlyTransformerLayer, SAMPLE_TEXT (repeated proverbs x500) (+16 more)
-
-### Community 4 - "Engram Retrieval-Fusion Concepts"
+### Community 2 - "Combined Model"
 Cohesion: 0.16
-Nodes (19): RMSNorm (attention_residuals.py), layer_seed = 42 + layer_idx*100 convention for hash function diversity, RMSNorm duplicated across files for independent importability, Context-aware gating (sigmoid of query . key), Depthwise 1D convolution (Engram fusion step), Hyper-connections (M=4 branches), Multiplicative-XOR hash (Engram retrieval), Engram Retrieval + Fusion Architecture (+11 more)
+Nodes (5): CharDataset, EngramOnlyTransformer, EngramOnlyTransformerLayer, Benchmark: Compare AttnRes-only, Engram-only (baseline transformer + Engram), a, Dataset
 
-### Community 5 - "Combined Model Test Suite"
-Cohesion: 0.27
-Nodes (10): CombinedEngramAttnResTransformer, Tests for the Combined Engram + AttnRes model. Run with: python test_combined.p, Verify Engram modules exist only at specified layers., Simulate a full training step., test_combined_backward(), test_combined_forward(), test_combined_with_loss(), test_engram_only_at_designated_layers() (+2 more)
+### Community 3 - "Transformer Layers"
+Cohesion: 0.24
+Nodes (12): CombinedEngramAttnResTransformer, Full Transformer combining Engram (conditional memory) and Block AttnRes     (a, Print parameter breakdown., Tests for the Combined Engram + AttnRes model. Run with: python test_combined.p, Verify Engram modules exist only at specified layers., Simulate a full training step., test_combined_backward(), test_combined_forward() (+4 more)
 
-### Community 6 - "Paper Concepts & Synergy"
-Cohesion: 0.19
-Nodes (13): Attention Residuals (arXiv:2603.15031), Engram: Conditional Memory via Scalable Lookup (arXiv:2601.07372), Sparsity allocation law (rho ~ 0.75 for MoE), Time-Depth Duality (AttnRes motivation), Two Axes of Sparsity (MoE vs Engram), Two-Phase Efficient Inference (parallel + sequential), Attention Residuals (learned depth attention), Combined Engram + AttnRes (+5 more)
-
-### Community 7 - "Benchmark Chart Findings"
-Cohesion: 0.23
-Nodes (13): Training Step axis (0 to 500), Benchmark Chart: Training Loss & Final Performance, Final Performance Comparison (Avg Loss last 50 steps), Training Loss Curves (Loss vs Training Step 0-500), Insight: Engram and Combined variants converge faster and to ~half the final loss of AttnRes Only, Insight: Engram Only and Combined perform nearly identically (0.0373 vs 0.0376), Avg Loss over last 50 training steps, Training Loss (smoothed) (+5 more)
-
-### Community 8 - "Engram Retrieve-Fuse Methods"
+### Community 4 - "Training & Data"
 Cohesion: 0.25
-Nodes (4): Build n-gram windows from compressed token IDs.          Args:             co, Phase 1: Retrieve embeddings from hash tables.          Args:             tok, Phase 2: Fuse retrieved memory into hidden states via gating + conv., Full Engram forward: retrieve + fuse.          Args:             hidden_state
+Nodes (8): AttnResTransformerLayer, Check if this layer starts a new block., Forward pass with Block Attention Residuals.          Args:             block, A single Transformer layer with Block Attention Residuals.      Each layer app, Layer at a block boundary should append partial to blocks., Layer NOT at a block boundary should not change block count., test_transformer_layer_block_boundary(), test_transformer_layer_no_boundary()
 
-### Community 9 - "Benchmark Caveats Bridge"
+### Community 5 - "Code Structure"
+Cohesion: 0.27
+Nodes (9): BlockAttnRes, Block Attention Residuals module.      Instead of fixed h_l = h_{l-1} + f_{l-1, Compute attention-weighted combination over depth.          Args:, At init, query=0 so attention should be uniform over all sources., Ensure gradients flow through AttnRes to all sources., With one source, output should equal that source (regardless of query)., test_block_attn_res_gradient_flow(), test_block_attn_res_single_source() (+1 more)
+
+### Community 6 - "Model Components"
+Cohesion: 0.31
+Nodes (3): Root Mean Square Layer Normalization., RMSNorm, Args:             input_ids: [B, T] token IDs             labels: [B, T] optio
+
+### Community 7 - "Testing"
+Cohesion: 0.25
+Nodes (6): Vocabulary projection that maps raw token IDs to compressed canonical IDs., Map raw token IDs to compressed IDs., TokenizerCompressor, Different token sequences should produce different memory vectors., test_engram_different_inputs_different_outputs(), test_tokenizer_compressor()
+
+### Community 8 - "Overview & Docs"
+Cohesion: 0.25
+Nodes (7): Tests for the Engram module. Run with: python test_engram.py, Same tokens should always retrieve the same memory., Verify parameter count is reasonable., test_engram_module_shapes(), test_engram_param_count(), test_engram_retrieval_deterministic(), test_rms_norm()
+
+### Community 9 - "Research Papers"
+Cohesion: 0.25
+Nodes (6): MultiHeadEmbedding, Multiple embedding tables for a single n-gram order.     Each head has its own, Args:             hash_indices: [batch, seq_len, num_heads]          Returns:, Ensure gradients flow through the Engram module., test_engram_gradient_flow(), test_multi_head_embedding()
+
+### Community 10 - "Attention Mechanism"
+Cohesion: 0.29
+Nodes (8): Attention Residuals (Kimi, arXiv 2603.15031), BlockAttnRes, Codex (secondary reviewer), Engram (DeepSeek, arXiv 2601.07372), EngramModule from codes/, codes_moe/ directory, MoE plan, Qwen3 architecture
+
+### Community 11 - "Hash Retrieval"
+Cohesion: 0.33
+Nodes (6): Depthwise convolution with SiLU activation and residual connection.     Equatio, Args:             x: [batch, seq_len, dim]         Returns:             out:, ShortConv, Output at position t should not depend on inputs at t+1., test_short_conv(), test_short_conv_causal()
+
+### Community 12 - "Residual Connections"
+Cohesion: 0.33
+Nodes (6): NgramHashMapping, Args:             compressed_ngrams: [batch, seq_len, ngram_size] compressed to, Multiplicative-XOR hash function for n-gram lookup.     Maps n-gram tuples to e, Same input should always produce the same hash., test_ngram_hash_deterministic(), test_ngram_hash_mapping()
+
+### Community 13 - "MLP Layers"
+Cohesion: 0.47
+Nodes (2): Root Mean Square Layer Normalization., RMSNorm
+
+### Community 14 - "RMSNorm"
+Cohesion: 0.33
+Nodes (4): _next_prime(), Engram: Conditional Memory via Scalable Lookup Based on DeepSeek's paper (arXiv, Find the next prime number >= n., test_next_prime()
+
+### Community 15 - "Qwen3 Architecture"
+Cohesion: 0.67
+Nodes (3): codes/ directory, codes_moe/ directory, graphify command
+
+### Community 16 - "MoE Experts"
+Cohesion: 0.67
+Nodes (1): Asimov_the_foundation.pdf (training data)
+
+### Community 17 - "Training Pipeline"
 Cohesion: 1.0
-Nodes (1): Benchmark limitations: repeated proverbs favor Engram memorization
+Nodes (1): Attention Residuals (AttnRes) Based on the Kimi team's paper (arXiv: 2603.15031
+
+### Community 18 - "Benchmarking"
+Cohesion: 1.0
+Nodes (1): Qwen3-style MoE model
+
+### Community 19 - "Data Loading"
+Cohesion: 1.0
+Nodes (1): combined_model.py reference
 
 ## Knowledge Gaps
-- **58 isolated node(s):** `Attention Residuals (AttnRes) Based on the Kimi team's paper (arXiv: 2603.15031`, `Root Mean Square Layer Normalization.`, `Block Attention Residuals module.      Instead of fixed h_l = h_{l-1} + f_{l-1`, `Compute attention-weighted combination over depth.          Args:`, `A single Transformer layer with Block Attention Residuals.      Each layer app` (+53 more)
+- **33 isolated node(s):** `Attention Residuals (AttnRes) Based on the Kimi team's paper (arXiv: 2603.15031`, `Root Mean Square Layer Normalization.`, `Block Attention Residuals module.      Instead of fixed h_l = h_{l-1} + f_{l-1`, `Compute attention-weighted combination over depth.          Args:`, `A single Transformer layer with Block Attention Residuals.      Each layer app` (+28 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Benchmark Caveats Bridge`** (2 nodes): `benchmark_chart.png`, `Benchmark limitations: repeated proverbs favor Engram memorization`
+- **Thin community `Training Pipeline`** (2 nodes): `Attention Residuals (AttnRes) Based on the Kimi team's paper (arXiv: 2603.15031`, `attention_residuals.py`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Benchmarking`** (1 nodes): `Qwen3-style MoE model`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Data Loading`** (1 nodes): `combined_model.py reference`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `EngramModule` connect `BlockAttnRes & Benchmark Harness` to `Engram Implementation Internals`, `Engram Retrieve-Fuse Methods`, `Combined Model Test Suite`?**
-  _High betweenness centrality (0.228) - this node is a cross-community bridge._
-- **Why does `train_model()` connect `Cross-File Architecture Narrative` to `BlockAttnRes & Benchmark Harness`?**
-  _High betweenness centrality (0.197) - this node is a cross-community bridge._
-- **Why does `RMSNorm` connect `BlockAttnRes & Benchmark Harness` to `Engram Implementation Internals`, `AttnRes Implementation Internals`, `Combined Model Test Suite`?**
-  _High betweenness centrality (0.183) - this node is a cross-community bridge._
+- **Why does `EngramModule` connect `Engram Module` to `Combined Model`, `Transformer Layers`, `Model Components`, `Testing`, `Overview & Docs`, `Research Papers`, `Hash Retrieval`, `Residual Connections`, `MLP Layers`, `RMSNorm`?**
+  _High betweenness centrality (0.263) - this node is a cross-community bridge._
+- **Why does `RMSNorm` connect `MLP Layers` to `Engram Module`, `Attention Residuals`, `Combined Model`, `Transformer Layers`, `Model Components`, `Testing`, `Overview & Docs`, `Research Papers`, `Hash Retrieval`, `Residual Connections`, `RMSNorm`?**
+  _High betweenness centrality (0.202) - this node is a cross-community bridge._
+- **Why does `BlockAttnRes` connect `Code Structure` to `Engram Module`, `Attention Residuals`, `Transformer Layers`, `Training & Data`, `Model Components`, `Training Pipeline`?**
+  _High betweenness centrality (0.143) - this node is a cross-community bridge._
 - **Are the 27 inferred relationships involving `EngramModule` (e.g. with `EngramOnlyTransformerLayer` and `EngramOnlyTransformer`) actually correct?**
   _`EngramModule` has 27 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 26 inferred relationships involving `RMSNorm` (e.g. with `EngramOnlyTransformerLayer` and `EngramOnlyTransformer`) actually correct?**
